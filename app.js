@@ -6,23 +6,22 @@ var logger = require('morgan');
 var bodyParser  = require('body-parser');
 var mongoose    = require('mongoose');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var indexRouter = require('./router/index');
+var usersRouter = require('./router/users');
 
 var app = express();
+var router = require('./router/main')(app);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+app.engine('html', require('ejs').renderFile);
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
