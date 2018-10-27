@@ -17,14 +17,22 @@
 <!-- 가운데 배치 -->
 <div class="center">
   <!-- 레벨 -->
-  <img class="level" src="./../images/level/lv1.png" width="150">
+  <div class="level">
+    <img src="./../images/level/lv1.png" width="150">
+    <img class="next_level" src="./../images/level/lv2.png" width="150">
+  </div>
+  <!-- 이게 결과로 나온 레벨 -->
   <img style="display: none" id="result_level" src="./../images/level/lv2.png" width="150">
 </div>
 
 <!-- 버튼 -->
-<div class="button">강화하기</div>
-<div style="display: none" class="result">강화 성공!</div>
+<div class="button"><img src="./../images/enhance.png" width="150"></div>
 
+<!-- 강화 결과(여기도 이제 자동으로 값 받게) -->
+<div style="display: none" class="enhance_result"><img src="./../images/success.png" width="500"></div>
+
+<!-- 홈버튼 -->
+<a class="home" href="./enhance1.html"><img src="./../images/home.png" width="60px"></a>
 </body>
 
 <!--jquery-->

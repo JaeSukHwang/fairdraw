@@ -21,7 +21,7 @@ a {
   width: 100%;
   height: 100%;
   background-color: black;
-  z-index: 2;
+  z-index: 4;
 }
 
 /* 배경 */
@@ -44,7 +44,7 @@ a {
 /* 버튼 */
 .button {
   position: absolute;
-  bottom: 12%;
+  bottom: 10%;
   margin-left: auto;
   margin-right: auto;
   left: 0;
@@ -52,12 +52,16 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 150px;
-  height: 40px;
-  background-color: black;
-  color: white;
 }
 
 .card {
   z-index: 1;
+}
+
+/* 홈버튼 */
+.home {
+  position: absolute;
+  right: 80px;
+  bottom: 40px;
+  z-index: 3;
 }
