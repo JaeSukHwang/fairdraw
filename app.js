@@ -10,7 +10,7 @@ var indexRouter = require('./router/index');
 var usersRouter = require('./router/users');
 
 var app = express();
-var router = require('./router/main')(app);
+// var router = require('./router/main')(app);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -41,6 +41,8 @@ db.once('open', function(){
 mongoose.connect('mongodb://localhost:27017/myapp');
 
 var User = require('./models/user');
+var router = require('./router/main')(app, User);
+
 
 // error handler
 app.use(function(err, req, res, next) {
@@ -54,8 +56,6 @@ app.use(function(err, req, res, next) {
 });
 
 var port = process.env.PORT || 8080;
-
-var router = require('./router')(app, User);
 
 var server = app.listen(port, function(){
     console.log("Express server has started on port " + port)
