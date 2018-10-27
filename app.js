@@ -26,13 +26,21 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-
-var port = process.env.PORT || 8080;
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
+
+var db = mongoose.connection;
+db.on('error', console.error);
+db.once('open', function(){
+    // CONNECTED TO MONGODB SERVER
+    console.log("Connected to mongod server");
+});
+
+mongoose.connect('localhost:27017');
+
+var User = require('./models/users');
 
 // error handler
 app.use(function(err, req, res, next) {
@@ -44,6 +52,10 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+var port = process.env.PORT || 8080;
+
+var router = require('./routes')(app, User);
 
 var server = app.listen(port, function(){
     console.log("Express server has started on port " + port)
