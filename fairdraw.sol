@@ -17,22 +17,21 @@ contract Fairdraw {
         uint Id;
     }
 
-    Draw[] public drawlist; //뽑기 박스는 현재 우리는 두개밖에 없지만, 게임회사가 임의로 추가할 수 있기 때문에 배열 처리한다.
     mapping(string => Draw) getdraw; //drawlist의 이름으로 drawlist를 가리키기 위한, 포인터.
     mapping (string => string) charToRank;
     mapping (uint => string) characterOwner; //일단 유저이름으로 input data 받지만, 추후 address로 변경 가능함
     mapping (string => Character[]) characterCollection;
+    mapping (uint => Character) charById;
 
     bool canChangeProb = false;
 
-
     Character[] public character_data;
 
-
+    event SuccessMessage(bool result, uint level, uint rand);
 
     function addDraw(string _drawname, string[] _characterlist) public { //drawlist에 draw 종류를 추가하는 함수
+        // require로 중복 없도록
         getdraw[_drawname] = Draw(_drawname,_characterlist); //지금 getdraw[_normal] 에는 draw 구조체가 들어가있다.
-        drawlist.push(getdraw[_drawname]);
     }
     function setCharToRank(string _charactername, string _rank) {
         charToRank[_charactername] = _rank;
@@ -42,9 +41,19 @@ contract Fairdraw {
     //       = getdraw[_drawname].characterlist;
     // } ---> 이렇게 캐릭터값 입력받는 과정이 밑의 함수에서 for문이 해주는 것.
 
-    // function _enhance(Character){
-
-    // }
+    function enhance(uint _charId) public {
+        require(charById[_charId].level < 6);
+        uint rand = random();
+        if (rand < 70) {
+            charById[_charId].level = charById[_charId].level + 1;
+            emit SuccessMessage(true, charById[_charId].level, rand);
+        } else {
+            charById[_charId].level = 1;
+            emit SuccessMessage(false, charById[_charId].level,rand);
+        }
+        character_data[_charId].level = charById[_charId].level;
+        //assert 문 필요합니다
+    }
 
 
     function _draw(string _drawname) internal {
@@ -62,7 +71,7 @@ contract Fairdraw {
                 index = index_random(rank_member); //인덱스는 랭크멤버에 해당하는 인덱스랜덤함수 값을 넣어주고. //인덱스 램덤함수는 수많은 동일 랭크 멤버가 뽑힐 확률을 균등하게 하는 역할.
                 result = rank_member[index]; //결과는 해당 랭크 멤버이다.
             } else if ((rand > 10) && (rand <= 40)) {
-                for (uint j = 0; j<getdraw[_drawname].characterlist.length; j++) {
+                for (uint j = 0; j < getdraw[_drawname].characterlist.length; j++) {
                     if (keccak256(charToRank[getdraw[_drawname].characterlist[j]]) == keccak256("A")) {
                         rank_member.push(getdraw[_drawname].characterlist[j]);
                     }
@@ -106,6 +115,7 @@ contract Fairdraw {
             }
         }
         character_data.push(Character(result, charToRank[result], 1, character_data.length));
+        charById[character_data.length-1] = character_data[character_data.length-1];
         //emit Finished_draw(result, rand) 그 멤버가 뽑힌 확률값을 보여줌.
     }
 
