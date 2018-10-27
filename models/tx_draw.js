@@ -6,4 +6,5 @@ var tx_draw = new Schema({
     Tx_hash: String
 });
 
-module.exports = mongoose.model('tx_draw', userSchema);
+module.exports = mongoose.model('tx_draw', tx_drawSchema);
+
