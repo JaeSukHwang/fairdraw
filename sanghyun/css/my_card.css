@@ -10,12 +10,16 @@
 }
 
 .card {
-  border-radius: 10px;
-  width: 150px;
-  height: 200px;
-  background-color: white;
+  position: relative;
+}
+
+.card_level {
+  position: absolute;
+  right: 2px;
+  bottom: 45px;
 }
 
 .card_name {
   margin: 10px 0 15px 0;
 }
+
