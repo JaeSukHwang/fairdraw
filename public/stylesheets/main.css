@@ -1,0 +1,158 @@
+/* 기본 세팅 */
+html, body {
+  position: relative;
+  height: 100%;
+  box-sizing: border-box;
+  margin:0;
+  padding:0;
+  background: ghostwhite;
+  color: #303030;
+}
+a {
+  text-decoration: none;
+  color: #303030;
+}
+form {
+  width: 100%;
+}
+input {
+  width: 100%;
+  border: none;
+  padding: 0 5px;
+  margin: 0;
+}
+button {
+  width: 100%;
+  background: white;
+  border: none;
+  margin: 0;
+  padding: 0 5px;
+  box-sizing: content-box;
+}
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+  background-color: white !important;
+}
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px white inset;
+}
+
+/* 네비게이션 & 메인 & 위에 선택할 수 있는 것들*/
+.nav_bar {
+  position: absolute;
+  left: 0;
+  width: 20%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #303030;
+  color: white;
+}
+.main {
+  position: absolute;
+  right: 0;
+  width: 80%;
+  height: 100%;
+}
+
+.nav_bar_button {
+  display: none;
+  position: absolute;
+  top: 30px;
+  left: 50px;
+  font-weight: 600;
+}
+/* login -> username or klaytn accounts */
+.user_info {
+  position: absolute;
+  right: 50px;
+  top: 30px;
+  font-weight: 600;
+}
+.user_info a {
+  text-decoration-line: underline;
+}
+
+
+/*로그인 페이지*/
+  /* nav_bar contents */
+  .nav_bar_title {
+    display: flex;
+    align-items: center;
+    height: 20%;
+    font-weight: 900;
+    font-size: 40px;
+  }
+  .contents {
+    width: 100%;
+    height: 80%;
+    font-size: 20px;
+    font-weight: 500;
+    border-top: black 1px solid;
+  }
+  .content {
+    padding: 10px 0 10px 30px;
+    border-bottom: black 1px solid;
+  }
+  .content a {
+    color: white;
+  }
+
+    /*메뉴 클릭시 해당 메뉴*/
+  .clicked {
+    background-color: rgba(52,177,227,1);
+  }
+
+  /* 가운데 배치 */
+  .center {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .login_box {
+    width: 270px;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .logo {
+    margin-bottom: 18px;
+  }
+
+  .login_required {
+    padding: 0 10px;
+    height: 32px;
+    width: 90%;
+    margin-bottom: 3px;
+    border: #303030 solid 0.5px;
+    font-size: 75%;
+  }
+
+  .id, .password {
+    width: 100%;
+  }
+
+  .login_btn {
+    width: 90%;
+    background-color: #303030;
+    color: white;
+  }
+
+
+
+
+/* 카드 관련 기본 세팅 */
+.card_set {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+

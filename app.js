@@ -40,7 +40,7 @@ db.once('open', function(){
     console.log("Connected to mongod server");
 });
 
-mongoose.connect('mongodb://localhost/test');
+mongoose.connect('mongodb://localhost/fairdraw');
 
 // error handler
 app.use(function(err, req, res, next) {

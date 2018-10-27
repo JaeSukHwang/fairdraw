@@ -16,14 +16,9 @@ module.exports = function(app, User)
         })
     });
 
+
+
     app.post('/api/user', function(req, res){
-        // let user = new User(
-        //     {
-        //       userId: req.body.userId,
-        //       AccountAddress: req.body.AccountAddress,
-        //       privateKey: req.body.privateKey
-        //     }
-        // );
         let user = new User()
         user.userId= req.body.userId
         user.AccountAddress= req.body.AccountAddress
@@ -33,6 +28,10 @@ module.exports = function(app, User)
             if(err){
                 console.error(err);
                 res.json({result: 0});
+                Schema.statics.create = function (payload) {
+                    const todo = new this(payload);
+                    return todo.save();
+                  };
                 return;
             }
     
@@ -41,7 +40,18 @@ module.exports = function(app, User)
         });
     });
     
-      
+    app.delete('/api/users/:_id', function(req, res){
+        User.remove({ _id: req.params._id }, function(err, output){
+            if(err) return res.status(500).json({ error: "database failure" });
+    
+            /* ( SINCE DELETE OPERATION IS IDEMPOTENT, NO NEED TO SPECIFY )
+            if(!output.result.n) return res.status(404).json({ error: "book not found" });
+            res.json({ message: "book deleted" });
+            */
+    
+            res.status(204).end();
+        })
+    });  
 
     
 }
