@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>login</title>
+  <link rel="stylesheet" type="text/css" href="./../css/main.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+</head>
+<body>
+<!--네비게이션 바-->
+<div class="nav_bar">
+  <div class="nav_bar_title">Menu</div>
+  <div class="contents">
+    <div class="content" id="content1"><a href="./my_card.html">내 카드</a></div>
+    <div class="content" id="content2"><a href="./draw1.html">카드 뽑기</a></div>
+    <div class="content" id="content3"><a href="./enhance1.html">카드 강화</a></div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<!--메인 내용-->
+<div class="main">
+  <!--가운데 배치-->
+  <div class="center">
+    <!--로그인 박스-->
+    <div class="login_box">
+      <div class="logo"><a href="#"><img src="./../images/fifa_logo.png" width="230"></a></div>
+      <form action="" method="POST">
+        <div class="id">
+          <input class="login_required" type="text" name="username" placeholder="회원 ID"
+                 required />
+        </div>
+        <div class="password">
+          <input class="login_required" type="password" name="password" placeholder="비밀번호"
+                 required/>
+        </div>
+        <button class="login_required login_btn" type="submit">로그인</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<!--네비게이션 바 버튼-->
+<div class="nav_bar_button">Menu</div>
+<!--회원 정보(login -> username or klaytn accounts)-->
+<div class="user_info">With <a href="./login.html">Klaytn</a></div>
+
+</body>
+
+<!--jquery-->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+<script type="text/javascript" src="./../js/main.js"></script>
+</html>

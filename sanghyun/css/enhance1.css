@@ -1,0 +1,21 @@
+.center {
+  flex-wrap: wrap;
+  height: 80%;
+  margin-top: 10%;
+  justify-content: start;
+}
+
+.move_to_enhance {
+  margin-left: 6%;
+}
+
+.card {
+  border-radius: 10px;
+  width: 150px;
+  height: 200px;
+  background-color: white;
+}
+
+.card_name {
+  margin: 10px 0 15px 0;
+}
