@@ -12,18 +12,27 @@
 <div class="black_block"></div>
 <!-- 배경 -->
 <img class="background" src="images/enhancement_background.png">
+<img class="background blank" src="images/enhancement_background2.png">
 
 <!-- 가운데 배치 -->
 <div class="center">
-  <!-- 카드 -->
-  <div class="card"></div>
+  <!-- 레벨 -->
+  <div class="level">
+    <img src="images/level/lv1.png" width="150">
+    <img class="next_level" src="images/level/lv2.png" width="150">
+  </div>
+  <!-- 이게 결과로 나온 레벨 -->
+  <img style="display: none" id="result_level" src="images/level/lv2.png" width="150">
 </div>
 
 <!-- 버튼 -->
-<div class="button">
-  <span class="remain_card">5</span>장 개봉
-</div>
+<div class="button"><img src="images/enhance.png" width="150"></div>
 
+<!-- 강화 결과(여기도 이제 자동으로 값 받게) -->
+<div style="display: none" class="enhance_result"><img src="images/success.png" width="500"></div>
+
+<!-- 홈버튼 -->
+<a class="home" href="/enhance1"><img src="images/home.png" width="60px"></a>
 </body>
 
 <!--jquery-->
