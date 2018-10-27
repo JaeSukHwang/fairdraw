@@ -6,11 +6,10 @@ var logger = require('morgan');
 var bodyParser  = require('body-parser');
 var mongoose    = require('mongoose');
 
-var indexRouter = require('./router/index');
-var usersRouter = require('./router/users');
-
 var app = express();
-// var router = require('./router/main')(app);
+
+
+//var router = require('./router/main')(app);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -26,6 +25,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+var User = require('./models/user');
+var router = require('./router')(app, User);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
@@ -38,11 +40,7 @@ db.once('open', function(){
     console.log("Connected to mongod server");
 });
 
-mongoose.connect('mongodb://localhost:27017/myapp');
-
-var User = require('./models/user');
-var router = require('./router/main')(app, User);
-
+mongoose.connect('mongodb://localhost/test');
 
 // error handler
 app.use(function(err, req, res, next) {
@@ -56,6 +54,8 @@ app.use(function(err, req, res, next) {
 });
 
 var port = process.env.PORT || 8080;
+
+
 
 var server = app.listen(port, function(){
     console.log("Express server has started on port " + port)
