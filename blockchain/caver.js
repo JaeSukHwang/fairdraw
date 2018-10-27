@@ -6,7 +6,6 @@ const config = {
 
 const cav = new Caver(config.rpcURL)
 
-
 module.exports = {
     cav : cav
 }
