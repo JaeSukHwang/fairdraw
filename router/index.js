@@ -2,11 +2,33 @@ module.exports = function(app, User)
 {
     
 
-    app.get('/',function(req,res){
-        res.render('index.html')
+    app.get('/drawlist',function(req,res){
+        res.render('draw1.html')
     });
-    app.get('/about',function(req,res){
-        res.render('about.html');
+
+
+    app.get('/normal',function(req,res){
+        res.render('draw2.html');
+    });
+
+    app.get('/premium',function(req,res){
+        res.render('draw3.html');
+    });
+
+    app.get('/enhance1',function(req,res){
+        res.render('enhance1.html');
+    });
+
+    app.get('/enhance2',function(req,res){
+        res.render('enhance2.html');
+    });
+
+    app.get('/login',function(req,res){
+        res.render('login.html');
+    });
+
+    app.get('/mycard',function(req,res){
+        res.render('my_card.html');
     });
 
     app.get('/api/user', function(req,res){
@@ -15,7 +37,6 @@ module.exports = function(app, User)
             res.json(users);
         })
     });
-
 
 
     app.post('/api/user', function(req, res){
