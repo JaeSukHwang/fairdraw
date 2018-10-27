@@ -12,7 +12,7 @@ Fair Draw API를 사용함으로써 게임 회사는 블록체인을 위한 개�
 
 ## 3. Source Code Specification
 
-#### [0] Data Structure & mapping
+### [0] Data Structure & Mapping
 
 
 | struct | attr | 설명 |
@@ -47,10 +47,14 @@ struct Draw { //뽑기 구조체의 뽑기이름이란, 노말인지 프리미�
     Character[] public character_data;//게임 내에 존재하는 모든 캐릭터의 목록의 배열.
     
     
-    
-#### [1] draw
+   
+   
+### [1] draw
+
 
 draw는 뽑기를 구현하기 위한 함수입니다.
+
+
 ```
 function _draw(string _drawname) internal {
         string result; 
@@ -131,9 +135,11 @@ function _draw(string _drawname) internal {
 
 ```
 
-#### [2] enhance
+### [2] enhance
+
 
 enhance를 캐릭터의 등급(레벨)을 강화 구현을 위한 함수입니다.
+
 
 ```
     event SuccessMessage(bool result, uint level, uint rand);
@@ -153,13 +159,17 @@ enhance를 캐릭터의 등급(레벨)을 강화 구현을 위한 함수입니�
     }
 ```
 
-#### [3] Etc
+### [3] Etc
+
 
 게임 회사의 커스터마이징 용 함수 입니다.
+
+```
 
 function addDraw(string _drawname, string[] _characterlist) public { //drawlist에 draw 종류를 추가하는 함수
         //추후 require로 중복 방지
         getdraw[_drawname] = Draw(_drawname,_characterlist); //지금 getdraw[_normal] 에는 draw 구조체가 들어가있다.
     }
+```
     
     
