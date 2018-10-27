@@ -35,8 +35,10 @@ struct Draw { //뽑기 구조체의 뽑기이름이란, 노말인지 프리미�
     
     mapping (string => Draw) getdraw; 
     //drawlist의 이름으로 drawlist를 가리키기 위한, 포인터. getdraw[_drawname].drawname
+    
     mapping (string => string) charToRank; 
-    //charToRank[_charactername] = 'S' //'Ronaldo' = 'S'
+    //charToRank[_charactername] = 'S' 
+    //'Ronaldo' = 'S'
     
     mapping (uint => string) characterOwner; 
     //생성된 캐릭터의 주인이 누구인지 알려주기 위함. (0번째 캐릭터의 주인이 누구)
@@ -44,6 +46,7 @@ struct Draw { //뽑기 구조체의 뽑기이름이란, 노말인지 프리미�
     
     mapping (string => Character[]) characterCollection; 
     //유저의 캐릭터 보유 내역을 보여주는 맵핑
+    
     mapping (uint => Character) charById; 
     //캐릭터에 부여된 Id로 캐릭터를 식별하기 위함. 
     //function enhance를 위해 필요.
