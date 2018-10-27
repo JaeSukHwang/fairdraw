@@ -38,9 +38,9 @@ db.once('open', function(){
     console.log("Connected to mongod server");
 });
 
-mongoose.connect('localhost:27017');
+mongoose.connect('mongodb://localhost:27017/myapp');
 
-var User = require('./models/users');
+var User = require('./models/user');
 
 // error handler
 app.use(function(err, req, res, next) {
@@ -55,7 +55,7 @@ app.use(function(err, req, res, next) {
 
 var port = process.env.PORT || 8080;
 
-var router = require('./routes')(app, User);
+var router = require('./router')(app, User);
 
 var server = app.listen(port, function(){
     console.log("Express server has started on port " + port)
