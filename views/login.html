@@ -31,7 +31,7 @@
     <!--로그인 박스-->
     <div class="login_box">
       <div class="logo"><a href="#"><img src="images/fifa_logo.png" width="230"></a></div>
-      <form action="" method="POST">
+      <form action="/login" method="POST">
         <div class="id">
           <input class="login_required" type="text" name="username" placeholder="회원 ID"
                  required />
@@ -40,7 +40,7 @@
           <input class="login_required" type="password" name="password" placeholder="비밀번호"
                  required/>
         </div>
-        <button class="login_required login_btn" type="submit">로그인</button>
+        <button class="login_required login_btn" onclick="login()" type="submit">로그인</button>
       </form>
     </div>
   </div>

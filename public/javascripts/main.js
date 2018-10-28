@@ -16,3 +16,10 @@ navBarButton.on('click', function () {
     main.css('width', '80%');
     navBarButton.hide()
 });
+
+
+function login(){
+    $.post("/login", function(data, json) {
+        window.location.replace('/mycard');
+    }
+}

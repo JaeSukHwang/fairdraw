@@ -10,6 +10,22 @@ module.exports = function(app, User, contract)
         });
         res.render('draw1.html');
     })
+    app.get('addDraw', function(req,res){
+        var normal = "normal";
+        var normallist = ["son", "gang", "sin", "jang", "lee", "cha"];
+        contract.myContract.methods.addDraw(normal, normallist).send({
+            from: "0x55A6F3603ffcEEdAa46bB545Bb28699559dc8460",
+            gas: 1500000,
+            gasPrice: '25000000000'
+        }).then(console.log)
+        var premium = "premium";
+        var premiumlist = ["ron", "mesi", "son", "gang", "sin", "jang"]
+        contract.myContract.methods.addDraw(premium, premiumlist).send({
+            from: "0x55A6F3603ffcEEdAa46bB545Bb28699559dc8460",
+            gas: 1500000,
+            gasPrice: '25000000000'
+        }).then(console.log)
+    })
 
     app.get('/drawlist',function(req,res){
         res.render('draw1.html')
@@ -17,6 +33,7 @@ module.exports = function(app, User, contract)
 
 
     app.get('/normal',function(req,res){
+        contract.myContract.draw()
         res.render('draw2.html');
     });
 
@@ -34,6 +51,14 @@ module.exports = function(app, User, contract)
 
     app.get('/login',function(req,res){
         res.render('login.html');
+
+    });
+    app.post('/login', function(req,res, next){
+        console.log(req)
+        // var Id = req.body.username;
+        // var Password = req.body.password;
+        // res.json({"Id":Id,"Password":Password})
+        res.render('my_card.html');
     });
 
     app.get('/mycard',function(req,res){
